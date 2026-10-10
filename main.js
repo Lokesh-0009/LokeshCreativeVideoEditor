@@ -334,6 +334,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const allProjectCards = document.querySelectorAll('.project-card');
 
     if (filterBtns.length > 0 && allProjectCards.length > 0) {
+        // Automatically calculate and sync category counts in filter badges
+        filterBtns.forEach(btn => {
+            const filter = btn.getAttribute('data-filter');
+            const countSpan = btn.querySelector('.filter-count');
+            if (countSpan) {
+                if (filter === 'all') {
+                    countSpan.textContent = allProjectCards.length;
+                } else {
+                    const count = document.querySelectorAll(`.project-card[data-category="${filter}"]`).length;
+                    countSpan.textContent = count;
+                }
+            }
+        });
+
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 filterBtns.forEach(b => b.classList.remove('active'));
