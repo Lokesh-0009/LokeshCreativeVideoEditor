@@ -905,7 +905,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Check if user clicked on an interactive HTML node to prevent blocking normal clicks
             const target = e.target;
-            const isInteractive = target && target.closest && target.closest('a, button, input, select, textarea, [role="button"], .project-card, .mobile-menu-toggle, .btn-primary, .btn-secondary, .social-links a, .nav-link, .profile-socials-pill a, .contact-item a');
+            const isInteractive = target && target.closest && target.closest('a, button, input, select, textarea, [role="button"], .project-card, .mobile-menu-toggle, .btn-primary, .btn-secondary, .social-links a, .nav-link, .profile-socials-pill a, .contact-item a, .hero-floating-badge');
             if (isInteractive) return;
 
             mouse.x = clientX;

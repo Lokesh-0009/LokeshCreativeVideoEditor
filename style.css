@@ -736,6 +736,150 @@ p {
     }
 }
 
+/* ==========================================================================
+   HERO FLOATING BADGES (Experience & Creative)
+   ========================================================================== */
+.hero-floating-badge {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.5rem 1.15rem 0.5rem 0.65rem;
+    border-radius: 100px;
+    background: rgba(18, 8, 14, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(239, 35, 60, 0.35);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 
+                0 0 20px rgba(239, 35, 60, 0.22), 
+                inset 0 1px 1px rgba(255, 255, 255, 0.15);
+    z-index: 12;
+    cursor: default;
+    user-select: none;
+    pointer-events: auto;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.35s ease;
+}
+
+.hero-floating-badge:hover {
+    animation-play-state: paused;
+    transform: scale(1.06) translateY(-2px) !important;
+    border-color: rgba(239, 35, 60, 0.7);
+    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.7), 
+                0 0 28px rgba(239, 35, 60, 0.4), 
+                inset 0 1px 2px rgba(255, 255, 255, 0.25);
+}
+
+.hero-floating-badge .badge-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(239, 35, 60, 0.3) 0%, rgba(153, 27, 27, 0.55) 100%);
+    border: 1px solid rgba(239, 35, 60, 0.45);
+    color: #ef233c;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+    box-shadow: 0 0 12px rgba(239, 35, 60, 0.35);
+    transition: transform 0.35s ease, background 0.35s ease;
+}
+
+.hero-floating-badge:hover .badge-icon {
+    transform: rotate(12deg) scale(1.1);
+    background: linear-gradient(135deg, rgba(239, 35, 60, 0.5) 0%, rgba(153, 27, 27, 0.7) 100%);
+    color: #ffffff;
+}
+
+.hero-floating-badge .badge-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.15;
+}
+
+.hero-floating-badge .badge-number {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+}
+
+.hero-floating-badge .badge-label {
+    font-family: var(--font-ui);
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #fca5a5;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+}
+
+/* Badge Positioning & Subtle Wiggle Movements */
+.badge-experience {
+    top: 8%;
+    right: -16px;
+    animation: subtleWiggleRight 6s ease-in-out infinite;
+}
+
+.badge-creative {
+    bottom: 14%;
+    left: -20px;
+    animation: subtleWiggleLeft 6.8s ease-in-out infinite;
+}
+
+@keyframes subtleWiggleRight {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    16% {
+        transform: translateY(-4px) rotate(2deg);
+    }
+    33% {
+        transform: translateY(-8px) rotate(-1.5deg);
+    }
+    50% {
+        transform: translateY(-4px) rotate(2.5deg);
+    }
+    67% {
+        transform: translateY(-9px) rotate(-1deg);
+    }
+    84% {
+        transform: translateY(-3px) rotate(1.5deg);
+    }
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+@keyframes subtleWiggleLeft {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    18% {
+        transform: translateY(-6px) rotate(-2deg);
+    }
+    36% {
+        transform: translateY(-3px) rotate(1.5deg);
+    }
+    54% {
+        transform: translateY(-8px) rotate(-2deg);
+    }
+    72% {
+        transform: translateY(-4px) rotate(1.5deg);
+    }
+    88% {
+        transform: translateY(-7px) rotate(-1deg);
+    }
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
 /* Floating Socials Pill */
 .profile-socials-pill {
     position: absolute;
@@ -2686,6 +2830,30 @@ body.modal-open {
         max-width: 290px;
         margin: 0 auto;
     }
+    .hero-floating-badge {
+        padding: 0.38rem 0.85rem 0.38rem 0.45rem;
+        gap: 0.5rem;
+    }
+    .hero-floating-badge .badge-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
+    }
+    .hero-floating-badge .badge-number {
+        font-size: 0.82rem;
+    }
+    .hero-floating-badge .badge-label {
+        font-size: 0.58rem;
+        letter-spacing: 0.05em;
+    }
+    .badge-experience {
+        top: 3%;
+        right: -8px;
+    }
+    .badge-creative {
+        bottom: 8%;
+        left: -10px;
+    }
     .profile-socials-pill {
         position: relative;
         bottom: auto;
@@ -2870,6 +3038,14 @@ body.modal-open {
     }
     .contact-wrapper {
         padding: 1.5rem 1rem;
+    }
+    .badge-experience {
+        top: 1%;
+        right: -4px;
+    }
+    .badge-creative {
+        bottom: 6%;
+        left: -6px;
     }
     .profile-socials-pill {
         padding: 0.45rem 0.95rem;
